@@ -1,0 +1,20 @@
+{
+  "name": "at06-modulolodash",
+  "version": "1.0.0",
+  "description": "Conhecendo Lodash",
+  "main": "6t05-MolduloLodash.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "lodash",
+    "js",
+    "jacascript",
+    "require"
+  ],
+  "author": "Angelo",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
