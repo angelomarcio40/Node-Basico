@@ -24,7 +24,7 @@ app.use(express.json())
 // criar as rotas
 app.get('/',(req,res)=>{
     res.status(200)
-    res.send('<h1>Index</h1>')
+    res.send('<h1>Index - Rotas</h1>')
 })
 
 // cria a rota cadastrar
@@ -98,6 +98,25 @@ app.patch('/atualizar/login',(req,res)=>{
         })
     } catch (error) {
         return res.send(`Não foi possivel atualizar os dados ${error}`)
+    }
+})
+
+// rota para remover registros(deletar)
+app.delete('/deletar/login',(req,res)=>{
+    let id = req.body.id
+
+    try {
+        // comando sql que sera executado
+        let sql = `DELETE FROM tb_login WHERE id = ${id}`
+
+        con.query(sql,(error,result)=>{
+            if(error){
+                return res.send(`Não foi possível deletar o registro! ${error}`)
+            }
+            res.send(`Não foi deletado com sucesso! ${error}`)
+        })
+    } catch (error) {
+        return res.send(`Não foi possível deletar o registro! ${error}`)
     }
 })
 
