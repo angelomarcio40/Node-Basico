@@ -33,11 +33,17 @@ app.get('/cadastrar',(req,res)=>{
     res.sendFile(__dirname+'/views/cadastrar.html')
 })
 
-app.get('/consultar',(req,res)=>{
+app.get('/consultar/:id?',(req,res)=>{
     res.status(200)
     
     try {
-        let sql = "SELECT nome,email,ativo,data_cadastro FROM tb_login"
+        // capptura o id enviado ou não via url
+        var id = req.params.id
+        if(typeof id == ''){
+            var sql = `SELECT nome,email,ativo,data_cadastro FROM tb_login`
+        }else{
+            var sql = `SELECT nome,email,ativo,data_cadastro FROM tb_login WHERE id = ${id}`
+        }
 
         con.query(sql,(error,result)=>{
             if(error){
