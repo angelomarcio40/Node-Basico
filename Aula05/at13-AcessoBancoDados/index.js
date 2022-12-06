@@ -64,7 +64,7 @@ app.post('/cadastrar/login',(req,res)=>{
     let{nome,email,senha,confirmar} = req.body
 
     if(senha != confirmar){
-        res.send('<h1>Senhas não conferem!</h1>')
+        return res.json({"retorno":"erro","mensagem":"Senhas não conferem!"})
     }
 
     // monta o commando SQL que sera executado no banco de dados
