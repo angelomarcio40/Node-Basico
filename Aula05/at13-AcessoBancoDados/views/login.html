@@ -10,12 +10,8 @@
   <body>
     <div id="container">
       <form id="form-login">
-        <h2>Cadastrar Login</h2>
+        <h2>Login</h2>
         <div class="form-grid">
-          <div>
-            <label for="">Nome</label>
-            <input type="text" name="nome" id="nome" />
-          </div>
           <div>
             <label for="email">Email</label>
             <input type="text" name="email" id="email" />
@@ -24,20 +20,16 @@
             <label for="senha">Senha</label>
             <input type="password" name="senha" id="senha" />
           </div>
-          <div>
-            <label for="confirmar">Confirmar Senha</label>
-            <input type="password" name="confirmar" id="confirmar" />
-          </div>
         </div>
-        <input class="btn-cadastrar" onclick="cadastrarLogin()" type="button" value="Cadastrar"/>
-        <a href="/" class="link-index">
-          <samll>Login</samll>
-        </a>
+        <input class="btn-cadastrar" onclick="validarLogin()" type="button" value="Entar"/>
+        <a href="/cadastrar" class="link-index">
+        <samll>Cadastrar Login</samll>
+      </a>
       </form>
     </div>
 
     <script src="js/jquery-3.6.1.min.js"></script>
     <script src="js/sweetalert2@11.js"></script>
-    <script src="js/cadastrar.js"></script>
+    <script src="js/login.js"></script>
   </body>
 </html>

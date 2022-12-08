@@ -39,3 +39,8 @@ body{
 .btn-cadastrar:hover{
     filter: brighness(1.1);
 }
+
+.link-index{
+    text-decoration: none;
+    color: #FFF;
+}

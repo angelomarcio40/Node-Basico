@@ -24,9 +24,10 @@ app.use(express.urlencoded({ extende: true }))
 app.use(express.json())
 
 // criar as rotas
+// rotaprincipal / (index)
 app.get('/', (req, res) => {
     res.status(200)
-    res.send('<h1>Index - Rotas</h1>')
+    res.sendFile(__dirname + '/views/login.html')
 })
 
 // cria a rota cadastrar
@@ -143,6 +144,26 @@ app.delete('/deletar/login', (req, res) => {
         })
     } catch (error) {
         return res.send(`Não foi possível deletar o registro! ${error}`)
+    }
+})
+
+// rota que valida Login
+app.post('/validar/login',(req,res)=>{
+    let (email,senha) = req.body
+
+    try {
+        let sql = `SELECT email,senha FROM tb_login WHERE email='${email} and BINARY senha = '{senha}' AND ativo=1`;
+
+        con.query(sql,(error,resukt)=>{
+            if(error){
+                res.json({
+                    "retorno": "erro",
+                    "mensagem": `Não foi possível validar usuário! ${error}`
+                })
+            }
+
+            res.json(result)
+        })
     }
 })
 
