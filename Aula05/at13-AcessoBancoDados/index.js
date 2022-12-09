@@ -168,6 +168,10 @@ app.post('/validar/login',(req,res)=>{
                 res.json({"retrono":"ok","mensagem":`Aguarde estamos logando!`})
             }
         })
+    } catch (error) { res.json({
+            "retorno": "erro",
+            "mensagem": `Não foi possivel validar o usuário! $(error)`
+        })
     }
 })
 
