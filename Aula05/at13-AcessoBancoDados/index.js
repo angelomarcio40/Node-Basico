@@ -162,7 +162,11 @@ app.post('/validar/login',(req,res)=>{
                 })
             }
 
-            res.json(result)
+            if(result == ''){
+                res.json({"retorno":"erro","mensagem":`Não foi possivel validar o usuário1`})
+            }else{
+                res.json({"retrono":"ok","mensagem":`Aguarde estamos logando!`})
+            }
         })
     }
 })
