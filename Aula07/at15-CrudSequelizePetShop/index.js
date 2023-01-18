@@ -7,6 +7,8 @@ const app = express()
 // importa o modulo do usuario
 const usuario = new require("./model/usuario")
 
+const produto = new require("./model/produto")
+
 const porta = 5000;
 
 // define a pasta publica que armazena o conteudo estatico(CSS,JS,IMG)
@@ -23,7 +25,7 @@ app.get('/login',(req,res)=>{
 })
 
 app.get('/cadastrar',(req,res)=>{
-    res.sendFile(__dirname+'/views/cadastrar.html')
+    res.sendFile(__dirname+'/views/cadastra-usuarios.html')
 })
 
 
